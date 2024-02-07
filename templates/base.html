@@ -1,0 +1,131 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Task Tracker</title>
+		<meta name="viewport" content="width=1024">
+		<link rel="stylesheet" href="{% static 'style.css' %}" />
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+		<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+		<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.standalone.min.css'>
+	</head>
+
+	<body>
+		{% url 'home' as home %}
+		{% url 'login' as login %}
+		{% url 'signup' as signup %}
+		{% url 'logout' as logout %}
+		{% url 'neohome' as neohome %}
+		{% url 'createtask' as createtask %}
+		<header class="{% if request.path == home %}header-area overlay{% endif %}">
+			<nav class="navbar navbar-expand-md navbar-dark {% if request.path != home %}set1{% endif %}">
+				<div class="container">
+					<a href="{% url 'home' %}" class="navbar-brand">📝 Task Tracker</a>
+
+					<button
+						type="button"
+						class="navbar-toggler collapsed"
+						data-toggle="collapse"
+						data-target="#main-nav"
+					>
+						<span class="menu-icon-bar"></span>
+						<span class="menu-icon-bar"></span>
+						<span class="menu-icon-bar"></span>
+					</button>
+
+					<div id="main-nav" class="collapse navbar-collapse">
+						<ul class="navbar-nav ml-auto">
+							<li class="{% if request.path == home %}active{% endif %}">
+								<a
+									href="{% url 'home' %}"
+									class="nav-item nav-link {% if request.path == home %}active{% endif %}"
+									><i class="fa fa-home" aria-hidden="true" style='font-size:22px'></i> Home</a
+								>
+							</li>
+							{% if not request.user.is_authenticated %}
+							<li class="dropdown">
+								<a
+									href="{% url 'login' %}"
+									class="nav-item nav-link {% if request.path == login %}active{% endif %} {% if request.path == signup %}active{% endif %}"
+									data-toggle="dropdown"
+									><i class="fas fa-torii-gate" style='font-size:18px'></i> Login/Signup</a
+								>
+								<div class="dropdown-menu">
+									<a
+										href="{% url 'login' %}"
+										class="dropdown-item"
+										><i class='fas fa-sign-in-alt'></i> Login</a
+									>
+									<a
+										href="{% url 'signup' %}"
+										class="dropdown-item"
+										><i class='fas fa-sign-in-alt fa-rotate-270'></i> Signup</a
+									>
+								</div>
+							</li>
+							{% endif %}
+							{% if request.user.is_authenticated %}
+							<li>
+								<a
+									href="{% url 'neohome' %}"
+									class="nav-item nav-link {% if request.path == neohome %}active{% endif %}"
+									><i class="fas fa-laptop" style='font-size:18px'></i> My Tasks</a
+								>
+							</li>
+							<li  class="dropdown">
+								<a
+									href="{% url 'profileupdate' %}"
+									class="nav-item nav-link {% if request.path == profileupdate %}active{% endif %}"
+									>
+									<i class='fa fa-user' style='font-size:20px'></i> {% if request.user.first_name %}{{request.user.first_name}}{% else %}My Profile{% endif %}</a
+								>
+								<div class="dropdown-menu">
+									<a
+									href="{% url 'logout' %}"
+									class="dropdown-item"
+									><i class='fas fa-sign-out-alt'></i> Logout</a
+									>
+									<a
+									href="{% url 'profileupdate' %}"
+									class="dropdown-item"
+									><i class='fas fa-user'></i> My Profile</a
+									>
+								</div>
+							</li>
+							{% endif %}
+							<li>
+								<a
+									href="https://www.linkedin.com/in/kunalvermait/"
+									class="nav-item nav-link"
+									target="_blank"
+									><i class="fa fa-address-card" style='font-size:20px'></i></i> Contact Me</a
+								>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+			{% block home_section %}
+						
+			{% endblock home_section %}		
+		</header>
+		<section id="content" class="content">
+			<div class="container">
+				{% block middle_section %}
+				
+				{% endblock middle_section %}
+			</div>
+		</section>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+		<script src="{% static 'script.js' %}"></script>
+		<script>
+			function isconfirmed(){
+				let v = window.confirm("Are you sure you want to delete your account?")
+				if(v){
+					window.location.replace('deleteprofile/');
+				}
+			}
+		</script>
+	</body>
+</html>

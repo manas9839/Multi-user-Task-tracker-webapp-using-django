@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block middle_section %}
+
+<div class="row p-0">
+  <div class="col-xl-5 shadow mx-auto p-0 border border-primary outer" style="background-color: rgba(255, 255, 255, 0.7);">
+    <div class="alert alert-primary mx-auto"><h2 class="bt-cst">Add Task</h2></div>
+    <div class="p-4">
+      <form method="POST" action="{% url 'createtask' %}">
+        {% csrf_token %}
+        <table class="s-table">
+          {{form.as_table}}
+        </table>
+        <div class = "text-center">
+          <button type="submit" class="btn btn-primary btn-cst">
+            <h2>Submit</h2>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="col">
+  {% if tasks %}
+    <table class="table table-hover my-2 text-center" style="border: solid #1e0065;">
+      <thead class="thead-light">
+        <tr>
+          <th style="font-size: large;">Sr.no</th>
+          <th style="font-size: large;">Title</th>
+          <th style="font-size: large;">Status</th>
+          <th style="font-size: large;">Due Date</th>
+          <th style="font-size: large;">Added Date</th>
+          <th style="font-size: large;">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for t in tasks %}
+        <tr {% if t.status == 'c' %}style="text-decoration: line-through; background-color:#d4edda;" {% else %} style="background-color: #FFFFCC;" {% endif %}>
+          <td>{{forloop.counter}}.</td>
+          <th style="font-size: large;">{{t.title}}</th>
+          <td>
+            <a href="/changestatus/{{t.id}}">
+              {% if t.status == 'p' %}  
+            <i class="fa fa-square-o text-danger btn m-0 p-0" data-toggle="tooltip" data-placement="bottom" title="Mark as complete" style="font-size:24px;"></i>
+          {% else %}
+          <i class="fa fa-check-square-o text-success btn m-0 p-0" data-toggle="tooltip" data-placement="bottom" title="Mark as pending" style="font-size:24px;"></i>
+          {% endif %}
+            </a>
+          </td>
+          <th>{{t.due_date}}</th>
+          <td>{{t.creation_date}}</td>
+          <td>
+              <a href="/update/{{t.id}}"><i class="fa fa-pencil text-info btn m-0 p-0" data-toggle="tooltip" data-placement="bottom" title="Edit task" style="font-size:30px;"></i></a>&nbsp;
+              <a href="/delete/{{t.id}}"><i class="fa fa-trash-o text-danger btn m-0 p-0" data-toggle="tooltip" data-placement="bottom" title="Delete task" style="font-size:30px;"></i></a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %} <div class="boom text-center">
+      <p class="display-4">No Tasks</p>
+    </div> {% endif %}
+  </div>
+</div>
+
+{% endblock middle_section %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block home_section %}
+<div class="banner">
+	<div class="container">
+		{% if request.user.is_authenticated %}
+		<h1>👋 Hello {{request.user.first_name}},</h1>	
+		{% endif %}
+		<h1>Task Tracker</h1>
+		<p>
+			It is a Multi User Task Tarcker Web application in which user can create their own Tasks or Todos along with deadlines to complete them.<br>
+			User can modify their Tasks and can change their profile details too.
+		</p>
+		{% if request.user.is_authenticated %}
+		<a href="{% url 'neohome' %}" class="button button-primary"><i class="fas fa-laptop" style='font-size:18px'></i> My Tasks</a>
+		{% else %}
+		<a href="{% url 'login' %}" class="button button-primary" ><i class='fas fa-sign-in-alt' style = "font-size:24px;"></i> Login</a>
+		{% endif %}
+	</div>
+</div>
+{% endblock home_section %}
