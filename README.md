@@ -107,7 +107,7 @@ you'll have to enter name, email and password and then you can access admin pane
 
 ## Authors
 
-- [@Kunal Verma](https://www.github.com/fadingreality1)
+- [@ManasAwasthi](https://github.com/manas9839)
 
 
 ## Environment Variables
