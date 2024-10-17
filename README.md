@@ -9,8 +9,6 @@ https://drive.google.com/file/d/1MDFBwBi20awV4WCsdnI2DNqk5lWpLNTC/view?usp=shari
 
 ![image](https://github.com/fadingreality1/Multi-user-Task-tracker-webapp-using-django/assets/114291201/22466417-890d-48de-9c88-398d9fac6225)
 
-![imgae](https://github.com/fadingreality1/Multi-user-Task-tracker-webapp-using-django/assets/114291201/9ea297e3-a7b5-4354-9c36-10ec0c9b68d2)
-
 ![image](https://github.com/fadingreality1/Multi-user-Task-tracker-webapp-using-django/assets/114291201/d6a8c285-6ebd-4601-b7ea-082bb65853e7)
 
 ![image](https://github.com/fadingreality1/Multi-user-Task-tracker-webapp-using-django/assets/114291201/40dd83ac-53c6-4650-bb86-9909c0369c16)
@@ -29,7 +27,7 @@ https://drive.google.com/file/d/1MDFBwBi20awV4WCsdnI2DNqk5lWpLNTC/view?usp=shari
 ### Clone the branch master in a folder of your choice
 
 ```bash
-    git clone -b master --single-branch https://github.com/fadingreality1/Multi-user-Task-tracker-webapp-using-django
+    git clone -b master --single-branch https://github.com/manas9839/Multi-user-Task-tracker-webapp-using-django
 ```
 
 ### Go to the project directory.
