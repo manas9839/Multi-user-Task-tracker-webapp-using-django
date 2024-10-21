@@ -1,9 +1,7 @@
 # Multi User Task Tracker
 
 This web application allows users to register and create task lists with deadlines. Once a task is completed, users can mark it as done and also delete it if necessary. Users have the option to update their profiles or delete their profiles from the database.
-## Demo
 
-https://drive.google.com/file/d/1MDFBwBi20awV4WCsdnI2DNqk5lWpLNTC/view?usp=sharing
 
 ## Screenshots
 
