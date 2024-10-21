@@ -13,8 +13,6 @@ This web application allows users to register and create task lists with deadlin
 
 ![image](https://github.com/fadingreality1/Multi-user-Task-tracker-webapp-using-django/assets/114291201/933dc593-a14d-4787-990e-fb4a3302acfc)
 
-![image](https://github.com/fadingreality1/Multi-user-Task-tracker-webapp-using-django/assets/114291201/29ca2c54-b27f-49e3-bd66-c4f5f74e5f18)
-
 ![image](https://github.com/fadingreality1/Multi-user-Task-tracker-webapp-using-django/assets/114291201/953ea8b5-20a3-473b-8909-4f9fa94c4924)
 
 ![image](https://github.com/fadingreality1/Multi-user-Task-tracker-webapp-using-django/assets/114291201/bc801ddf-e431-4658-8e24-9b55c9d175f3)
